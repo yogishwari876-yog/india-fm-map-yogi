@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Explore Indian states and listen to regional radio stations.">
+    <meta name="theme-color" content="#101827">
+    <title>India FM — Regional Radio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" href="#" aria-label="India FM home">
+        <span class="brand-icon" aria-hidden="true">♫</span>
+        <span>India<span class="brand-accent">FM</span></span>
+    </a>
+    <span class="live-indicator">
+        <span class="live-dot"></span> REGIONAL RADIO
+    </span>
+</header>
+
+<main class="container">
+    <section class="intro">
+        <p class="eyebrow">ONE COUNTRY · MANY SOUNDS</p>
+        <h1>Discover India <span>through music.</span></h1>
+        <p class="subtitle">
+            Select a state on the map to explore its radio stations.
+        </p>
+    </section>
+
+    <section class="workspace" aria-label="Radio explorer">
+        <div class="map-panel panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE REGIONS</p>
+                    <h2>India map</h2>
+                </div>
+                <span class="map-hint">Select a state</span>
+            </div>
+
+            <div id="mapContainer" class="map-container"
+                 aria-label="Interactive map of India">
+                <div class="map-loading" id="mapLoading" role="status">
+                    Loading India map…
+                </div>
+            </div>
+
+            <p class="map-footnote">
+                Choose a region on the map or use the state selector.
+            </p>
+
+            <label for="stateSelect" class="field-label">Choose a state</label>
+            <select id="stateSelect">
+                <option value="">Select a state or union territory</option>
+            </select>
+        </div>
+
+        <aside class="radio-panel panel" aria-label="Radio stations">
+            <p class="eyebrow">YOUR REGIONAL SOUND</p>
+            <div class="region-title">
+                <span class="region-icon" aria-hidden="true">♫</span>
+                <div>
+                    <h2 id="selectedState">Select a state</h2>
+                    <p id="regionDescription">Your next favourite station awaits.</p>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="station-heading">
+                <h3>Available stations</h3>
+                <span id="stationCount" class="count">0 stations</span>
+            </div>
+
+            <div id="stationList" class="station-list">
+                <p class="empty-state">Select a state to see its stations.</p>
+            </div>
+
+            <div class="player">
+                <div class="now-playing">
+                    <div class="equalizer" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="track-details">
+                        <p class="eyebrow">NOW PLAYING</p>
+                        <p id="nowPlaying" class="track-name">Nothing playing</p>
+                        <p id="playerStatus" class="player-status" role="status"
+                           aria-live="polite">Choose a station to begin.</p>
+                    </div>
+                </div>
+
+                <audio id="audioPlayer" controls preload="none"></audio>
+            </div>
+        </aside>
+    </section>
+
+    <section class="help-note">
+        <strong>How it works</strong>
+        <p>
+            The map selects a region, JavaScript loads that region's station
+            list, and the browser audio player streams the selected station.
+            Streaming requires a valid, browser-accessible audio URL.
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    India FM · A regional radio discovery project
+</footer>
+</body>
+</html>
